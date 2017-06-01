@@ -1,5 +1,6 @@
 package com.juyao.ganhuo.tools
 
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -8,6 +9,7 @@ import android.provider.Settings
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.WindowManager
+import android.widget.Toast
 
 import java.util.UUID
 
@@ -168,6 +170,14 @@ object DeviceUtils {
     fun sp2px(context: Context, spValue: Float): Int {
         val fontScale = context.resources.displayMetrics.scaledDensity
         return (spValue * fontScale + 0.5f).toInt()
+    }
+    /**
+     * 复制字符串到剪贴板
+     */
+    fun copyToClipBoard(context: Context,str:String){
+        val clip: ClipboardManager= context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        clip.text=str
+        Toast.makeText(context,"复制成功～",Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -114,7 +114,6 @@ class ImagesDetailActivity : BaseActivity<PMain>() {
     }
 
     companion object {
-
         val INTENT_IMAGE_URL_TAG = "INTENT_IMAGE_URL_TAG"
         val INTENT_IMAGE_X_TAG = "INTENT_IMAGE_X_TAG"
         val INTENT_IMAGE_Y_TAG = "INTENT_IMAGE_Y_TAG"
