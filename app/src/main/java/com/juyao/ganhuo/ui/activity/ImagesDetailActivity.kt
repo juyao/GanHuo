@@ -62,11 +62,13 @@ class ImagesDetailActivity : BaseActivity<PMain>() {
         //                .error(R.mipmap.ic_launcher)
         //                .into(mSmoothImageView);
 
-        mSmoothImageView!!.setOnTransformListener { mode ->
-            if (mode == 2) {
-                finish()
+        mSmoothImageView!!.setOnTransformListener(object : SmoothImageView.TransformListener {
+            override fun onTransformComplete(mode: Int) {
+                if (mode == 2) {
+                    finish()
+                }
             }
-        }
+        })
         mSmoothImageView!!.setOnPhotoTapListener { view, v, v2 -> mSmoothImageView!!.transformOut() }
     }
 
@@ -93,7 +95,7 @@ class ImagesDetailActivity : BaseActivity<PMain>() {
 
     }
 
-    override fun initData(bundle: Bundle) {
+    override fun initData(bundle: Bundle?) {
         mSmoothImageView = findViewById(R.id.images_detail_smooth_image) as SmoothImageView
 
         val extras = intent.extras
